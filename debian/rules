@@ -1,0 +1,21 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND = -Wall
+include /usr/share/dpkg/buildflags.mk
+
+include /usr/share/cdbs/1/rules/upstream-tarball.mk
+include /usr/share/cdbs/1/rules/utils.mk
+include /usr/share/cdbs/1/class/autotools.mk
+include /usr/share/cdbs/1/rules/debhelper.mk
+
+DEB_CONFIGURE_USER_FLAGS = --libdir=/usr/lib/tcltk --disable-static
+DEB_TAR_SRCDIR := .
+DEB_INSTALL_DOCS_ALL :=
+DEB_DH_MAKESHLIBS_ARGS_ALL := -Xlibsnack_sndfile_ext
+
+binary-post-install/snack-sndfile-ext::
+	$(RM) debian/$(cdbs_curpkg)/usr/lib/tcltk/*/*.la
+
+# Needed by upstream build process
+CDBS_BUILD_DEPENDS += , libsndfile1-dev, libsnack2-dev, tcl-dev, dpkg-dev (>= 1.16.1~)

@@ -1,0 +1,6 @@
+snack-sndfile-ext (0.0.1-1) unstable; urgency=low
+
+  * Initial release.
+    Closes: #677385.
+
+ -- Giulio Paci <giuliopaci@gmail.com>  Wed, 13 Jun 2012 16:01:37 +0200

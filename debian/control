@@ -1,0 +1,23 @@
+Source: snack-sndfile-ext
+Section: sound
+Priority: optional
+Maintainer: Giulio Paci <giuliopaci@gmail.com>
+Build-Depends: autotools-dev,
+ devscripts,
+ cdbs (>= 0.4.85~),
+ debhelper (>= 9~),
+ dh-buildinfo,
+ libsndfile1-dev,
+ libsnack2-dev,
+ tcl-dev,
+ dpkg-dev (>= 1.16.1~)
+Standards-Version: 3.9.3
+Homepage: https://github.com/snacksndfileext/SnackSndfileExt/
+
+Package: snack-sndfile-ext
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: libsndfile snack plugin
+ SnackSndfileExt is a C extension for the snack2.2 package.
+ It adds libsndfile support, enabling programs like wavesurfer and
+ transcriber to load all the audio files supported by libsndfile.
